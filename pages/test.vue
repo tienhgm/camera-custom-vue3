@@ -50,20 +50,27 @@ export default {
 .parent {
   position: relative;
   overflow: hidden;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
 }
 #video {
-  width: 100%;
+  /* width: 100%; */
   /* height: inherit; */
+  transform: rotate(90deg);
+
+  transform-origin: bottom left;
+  width: 100vh;
+  height: 100vw;
+  margin-top: -100vw;
+  object-fit: cover;
 }
 .img-temp {
   position: absolute;
-  width: 50%;
-  height: 40%;
+  /* width: 50%; */
+  height: 30%;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) rotate(90deg);
 }
 img {
   display: block;
@@ -90,6 +97,7 @@ img {
   cursor: pointer;
   bottom: 2rem;
   left: 50%;
+  transform: translateX(-50%);
   position: absolute;
   background: #fff;
   border-radius: 50%;
