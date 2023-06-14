@@ -18,7 +18,7 @@ export default {
   },
   async mounted() {
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" } });
       if (stream) this.handleSuccess(stream);
     } catch (error) {
       console.log(error);
