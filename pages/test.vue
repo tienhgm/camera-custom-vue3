@@ -23,7 +23,7 @@ export default {
       });
       if (stream) this.handleSuccess(stream);
     } catch (error) {
-      console.log(error);
+      alert(error);
     }
   },
   methods: {
