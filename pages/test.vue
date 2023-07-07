@@ -29,7 +29,7 @@ export default {
     async setupCamera() {
       const video = document.querySelector("#video");
       const stream = await navigator.mediaDevices.getUserMedia({
-        video: { facingMode: "user" },
+        video: { facingMode: "environment" },
       });
       if (stream) {
         video.srcObject = stream;
@@ -68,7 +68,7 @@ export default {
 #video {
   /* width: 100%; */
   /* height: inherit; */
-  transform: rotate(90deg);
+  /* transform: rotate(90deg); */
 
   transform-origin: bottom left;
   width: 100vh;
