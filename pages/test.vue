@@ -1,6 +1,6 @@
 <template>
   <div class="parent">
-    <video id="video" autoplay></video>
+    <video id="video"></video>
     <canvas id="canvas"></canvas>
     <div class="bottom-camera"></div>
     <img src="~/assets/imgs/temp.png" class="img-temp" />
@@ -18,7 +18,9 @@ export default {
   },
   async mounted() {
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" } });
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: "user" },
+      });
       if (stream) this.handleSuccess(stream);
     } catch (error) {
       console.log(error);
@@ -27,7 +29,11 @@ export default {
   methods: {
     handleSuccess(stream) {
       const video = document.querySelector("#video");
+      video.autoplay = true;
       video.srcObject = stream;
+      video.onloadedmetadata = () => {
+        video.play();
+      };
     },
     onCapture() {
       const canvas = document.getElementById("canvas");
