@@ -68,7 +68,7 @@ export default {
 #video {
   /* width: 100%; */
   /* height: inherit; */
-  /* transform: rotate(90deg); */
+  transform: rotate(90deg);
 
   transform-origin: bottom left;
   width: 100vh;
