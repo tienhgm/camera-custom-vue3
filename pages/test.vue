@@ -69,7 +69,7 @@ export default {
   width: 100%;
   /* height: inherit; */
   /* transform: rotate(90deg); */
-  height: calc(100%- 151.91px);
+  height: calc(100%- 150px);
   transform-origin: bottom left;
   /* width: 100vh;
   height: 100vw; */
@@ -99,7 +99,7 @@ img {
   left: 5%;
 }
 .bottom-camera {
-  height: 18%;
+  height: 150px;
   position: absolute;
   width: inherit;
   bottom: 0;
