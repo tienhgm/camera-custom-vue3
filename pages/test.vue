@@ -1,6 +1,6 @@
 <template>
   <div class="parent">
-    <video id="video" autoplay muted hidden playsinline></video>
+    <video id="video" autoplay muted playsinline></video>
     <canvas id="canvas"></canvas>
     <div class="bottom-camera"></div>
     <img src="~/assets/imgs/temp.png" class="img-temp" />
