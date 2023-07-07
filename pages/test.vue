@@ -66,14 +66,14 @@ export default {
   height: 100vh;
 }
 #video {
-  /* width: 100%; */
+  width: 100%;
   /* height: inherit; */
-  transform: rotate(90deg);
-
+  /* transform: rotate(90deg); */
+  height: calc(100%- 151.91px);
   transform-origin: bottom left;
-  width: 100vh;
-  height: 100vw;
-  margin-top: -100vw;
+  /* width: 100vh;
+  height: 100vw; */
+  /* margin-top: -100vw; */
   object-fit: cover;
 }
 .img-temp {
