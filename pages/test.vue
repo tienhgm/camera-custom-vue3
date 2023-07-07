@@ -1,6 +1,6 @@
 <template>
   <div class="parent">
-    <video id="video"></video>
+    <video id="video" autoplay muted hidden playsinline></video>
     <canvas id="canvas"></canvas>
     <div class="bottom-camera"></div>
     <img src="~/assets/imgs/temp.png" class="img-temp" />
@@ -18,23 +18,29 @@ export default {
   },
   async mounted() {
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({
-        video: { facingMode: "user" },
-      });
-      if (stream) this.handleSuccess(stream);
+      const video = document.querySelector("#video");
+      await this.setupCamera();
+      video.play();
     } catch (error) {
       alert(error);
     }
   },
   methods: {
-    handleSuccess(stream) {
+    async setupCamera() {
       const video = document.querySelector("#video");
-      video.autoplay = true;
-      video.srcObject = stream;
-      video.onloadedmetadata = () => {
-        video.play();
-      };
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: "user" },
+      });
+      if (stream) {
+        video.srcObject = stream;
+        return new Promise((resolve) => {
+          video.onloadedmetadata = () => {
+            resolve(video);
+          };
+        });
+      }
     },
+    handleSuccess(stream) {},
     onCapture() {
       const canvas = document.getElementById("canvas");
       var ctx = canvas.getContext("2d");
